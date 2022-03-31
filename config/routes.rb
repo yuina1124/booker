@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   get 'homes/top'
 
   get 'lists/new'
+  post 'lists/new' => 'lists#create'
 
-  get 'lists/index'
+  get 'lists/index' =>'lists#index'
 
   get 'lists/show'
 
