@@ -5,10 +5,12 @@ class BooksController < ApplicationController
 
  def create
   book = Book.new(book_params)
-  list.save
+  book.save
   redirect_to '/top'
+ end
 
  def index
+  @books = Book.all
  end
 
  private

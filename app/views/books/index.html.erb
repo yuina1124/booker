@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <style type="text/css">
       .turbolinks-progress-bar {
@@ -20,10 +21,13 @@
     <meta name="csrf-param" content="authenticity_token">
     <meta name="csrf-token" content="y40xl4I6wQf1x0HjgVRltjoe7nnfHLojMCOtz+P2O1eySqND7OQFOUA97PV5Iz/4Qo+PXEJHdG1wPVPbuxoytg==">
   </head>
-
+<%= @books.each do |book| %>
   <body>
+
     <p id="notice"></p>
     <h1>Books</h1>
+    <span><%= book.title %></span>
+
     <table>
       <thead>
         <tr>

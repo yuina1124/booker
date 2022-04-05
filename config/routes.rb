@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'books/new'
   post 'books' => 'books#create'
 
-  get 'books/index' =>'books#index'
+  get 'books/new'
+  get 'top' => 'homes#top'
+  post 'books' => 'books#create'
+  get 'books' => 'books#index'
 
   get 'books/show'
 
