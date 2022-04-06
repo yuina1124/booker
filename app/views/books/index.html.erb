@@ -21,12 +21,10 @@
     <meta name="csrf-param" content="authenticity_token">
     <meta name="csrf-token" content="y40xl4I6wQf1x0HjgVRltjoe7nnfHLojMCOtz+P2O1eySqND7OQFOUA97PV5Iz/4Qo+PXEJHdG1wPVPbuxoytg==">
   </head>
-<%= @books.each do |book| %>
   <body>
 
     <p id="notice"></p>
     <h1>Books</h1>
-    <span><%= book.title %></span>
 
     <table>
       <thead>
@@ -37,93 +35,8 @@
         </tr>
       </thead>
 
-      <tbody>
-        <tr>
-          <td>トラブル知らずのシステム設計</td>
-          <td>システム設計の要点を図解で説明してくれます</td>
-          <td>
-            <a class="show_61778" href="/books/61778">Show</a>
-          </td>
-          <td>
-            <a class="edit_61778" href="/books/61778/edit">Edit</a>
-          </td>
-          <td>
-            <a date-confirm="Are you sure?" class="destroy_61778" rel="nofollow" data-method="delete" href="/books/61778">Destroy</a>
-          </td>
-        </tr>
-
-         <tr>
-          <td>楽しいRuby</td>
-          <td>Rubyの入門におすすめです</td>
-          <td>
-            <a class="show_61779" href="/books/61779">Show</a>
-          </td>
-          <td>
-            <a class="edit_61779" href="/books/61779/edit">Edit</a>
-          </td>
-          <td>
-            <a date-confirm="Are you sure?" class="destroy_61779" rel="nofollow" data-method="delete" href="/books/61779">Destroy</a>
-          </td>
-        </tr>
-
-         <tr>
-          <td>入門Git</td>
-          <td>gitについての基本操作から内部構造まで解説してくれます</td>
-          <td>
-            <a class="show_61780" href="/books/61780">Show</a>
-          </td>
-          <td>
-            <a class="edit_61780" href="/books/61780/edit">Edit</a>
-          </td>
-          <td>
-            <a date-confirm="Are you sure?" class="destroy_61780" rel="nofollow" data-method="delete" href="/books/61780">Destroy</a>
-          </td>
-        </tr>
-
-         <tr>
-          <td>アルゴリズム図鑑</td>
-          <td>アルゴリズムについてカラーイラストでしっかり解説してくれます</td>
-          <td>
-            <a class="show_61781" href="/books/61781">Show</a>
-          </td>
-          <td>
-            <a class="edit_61781" href="/books/61781/edit">Edit</a>
-          </td>
-          <td>
-            <a date-confirm="Are you sure?" class="destroy_61781" rel="nofollow" data-method="delete" href="/books/61781">Destroy</a>
-          </td>
-        </tr>
-
-         <tr>
-          <td>達人プログラマー</td>
-          <td>プログラマ入門者は必読</td>
-          <td>
-            <a class="show_61782" href="/books/61782">Show</a>
-          </td>
-          <td>
-            <a class="edit_61782" href="/books/61782/edit">Edit</a>
-          </td>
-          <td>
-            <a date-confirm="Are you sure?" class="destroy_61782" rel="nofollow" data-method="delete" href="/books/61782">Destroy</a>
-          </td>
-        </tr>
-
-         <tr>
-          <td>データベース実践入門</td>
-          <td>効率的なSQL文を教えてくれます</td>
-          <td>
-            <a class="show_61783" href="/books/61783">Show</a>
-          </td>
-          <td>
-            <a class="edit_61783" href="/books/61783/edit">Edit</a>
-          </td>
-          <td>
-            <a date-confirm="Are you sure?" class="destroy_61783" rel="nofollow" data-method="delete" href="/books/61783">Destroy</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
     <h2>New book</h2>
+    <%= @books.each do |book| %>
     <form class="new_book" id="new_book" action="/books" accept-charset="UFT-8" method="post">
       <input name="utf8" type="hidden" value="✓" >
       <input type="hidden" name="authenticity_token" value="6DdIAX6/Lk8Wb2PrY8L4YhHytUBs0meyWvSyc/RQoiLHxTuiqmzaQoitDG6UA3QehWoZ67bbNSQxGRRLiDbD8g==">
@@ -135,6 +48,7 @@
         <label for="book_body">Body</label>
         <textarea class="book_body" name="book[body]" id="book_body"></textarea>
       </div>
+      <% end %>
       <div class="actions">
         <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
       </div>
