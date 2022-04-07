@@ -1,31 +1,5 @@
-<!DOCTYPE html>
-<html>
 
-  <head>
-    <style type="text/css">
-      .turbolinks-progress-bar {
-        position: fixed;
-        display: block;
-        top: 0;
-        left: 0;
-        height: 3px;
-        background: #0076ff;
-        z-index: 9999;
-        transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
-        transform: translate3d(0,0,0);
-      }
-    </style>
-    <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" date-turbolinks-track="reload">
-    <script src="/assets/application-114264dd93c8ff30e4335b71eed7949d66c4e7a8eb62e2de6284c046fe07104b.js" data-turbolinks-track="reload"></script>
-    <title>WebCampBackendNew</title>
-    <meta name="csrf-param" content="authenticity_token">
-    <meta name="csrf-token" content="y40xl4I6wQf1x0HjgVRltjoe7nnfHLojMCOtz+P2O1eySqND7OQFOUA97PV5Iz/4Qo+PXEJHdG1wPVPbuxoytg==">
-  </head>
-  <body>
-
-    <p id="notice"></p>
     <h1>Books</h1>
-
     <table>
       <thead>
         <tr>
@@ -34,24 +8,40 @@
           <th colspan="3"></th>
         </tr>
       </thead>
+      <tbody>
+        <% @books.each do |book| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+          <td><%= link_to "Show", book_path(book) %></td>
+          <td><%= link_to "Edit", edit_book_path(book) %></td>
+          <td><%= link_to "Destroy", book_path(book) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
 
     <h2>New book</h2>
-    <%= @books.each do |book| %>
-    <form class="new_book" id="new_book" action="/books" accept-charset="UFT-8" method="post">
-      <input name="utf8" type="hidden" value="✓" >
-      <input type="hidden" name="authenticity_token" value="6DdIAX6/Lk8Wb2PrY8L4YhHytUBs0meyWvSyc/RQoiLHxTuiqmzaQoitDG6UA3QehWoZ67bbNSQxGRRLiDbD8g==">
-      <div class="field">
-        <label for="book_title">Title</label>
-        <input class="book_title" type="text" name="book[title]" id="book_title">
-      </div>
-      <div class="field">
-        <label for="book_body">Body</label>
-        <textarea class="book_body" name="book[body]" id="book_body"></textarea>
-      </div>
-      <% end %>
-      <div class="actions">
-        <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
-      </div>
-    </form>
+
+    <%= form_with model: Book.new do |f| %>
+        <div class="field">
+          <label for="book_title">Title</label>
+          <%= f.text_field :title %>
+        </div>
+
+
+        <div class="field">
+          <label for="book_body">Body</label>
+        <%= f.text_area :body %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Create Book'%>
+        </div>
+
+    <% end %>
+      </form>
   </body>
 </html>

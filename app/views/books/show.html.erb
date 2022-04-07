@@ -1,2 +1,13 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h2>Title</h2>
+<p><%= @book.title %></p>
+
+<h2>Body</h2>
+<p><%= @book.body %></p>
+
+<tbody>
+    <tr>
+        <td><%= link_to "Edit", edit_book_path(book) %></td>
+        <td><%= link_to "Back", book_path(book) %></td>
+    </tr>
+</tbody>
+
