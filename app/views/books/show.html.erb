@@ -1,25 +1,16 @@
-<table>
-<thead>
-        <tr>
-          <th>Title</th>
-          <p><%= @book.title %></p>
-          <th>Body</th>
-          <p><%= @book.body %></p>
-
-        </tr>
-      </thead>
 
 
-<tbody>
+<p>
+    <strong>Title:</strong>
+    <%= @book.title %>
+</p>
+<p>
+    <strong>Body:</strong>
+    <%= @book.body %>
+</p>
+<%= link_to "Edit", edit_book_path(@book) %>
+|
+<%= link_to "Back", book_path(@book) %>
 
-    <tr>
-        <td><%= book.title %></td>
-         <td><%= book.body %></td>
-        <td><%= link_to "Edit", edit_book_path(book) %></td>
-        <td><%= link_to "Back", book_path(book) %></td>
-    </tr>
 
-</tbody>
-
-</table>
 
