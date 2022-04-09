@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+ <div class="alert alert-primary" role="alert">
+     <%= notice %>
+ </div>
+<% end %>
+
 <h2>Eating Book</h2>
 
     <%= form_with model: Book.new do |f| %>
