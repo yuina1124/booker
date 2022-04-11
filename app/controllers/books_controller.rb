@@ -10,6 +10,15 @@ class BooksController < ApplicationController
  end
 end
 
+ def update
+   @book = Book.find(params[:id])
+    if @book.update(book_params)
+     redirect_to book_path(@book.id), flash: { notice: 'Book was successfully updated.' }
+    else
+     render :edit
+    end
+ end
+
  def destroy
   book = Book.find(params[:id])
   book.destroy
@@ -29,11 +38,7 @@ end
   @book = Book.find(params[:id])
  end
 
- def update
-  book = Book.find(params[:id])
-  book.update(book_params)
-  redirect_to book_path(book.id), flash: { notice: 'Book was successfully updated.' }
- end
+
 
  private
  def book_params
